@@ -24,3 +24,4 @@ set showcmd " Show command in status line
 " TODO Improve GUI settings by doing platform detection
 if has('gui_running')
     set guifont=Monaco:h14
+endif
