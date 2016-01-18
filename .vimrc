@@ -9,7 +9,11 @@ call vundle#begin()
 " Vundle plugin
 Plugin 'VundleVim/Vundle.vim'
 " Code completion plugin
-Plugin 'Valloric/YouCompleteMe'
+if has('win32')
+    " It's a disaster to use YCM on Windows, opt-out here
+else
+    Plugin 'Valloric/YouCompleteMe'
+endif
 " OceanicNext color scheme
 Plugin 'mhartington/oceanic-next'
 call vundle#end()
