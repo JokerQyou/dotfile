@@ -45,6 +45,9 @@ au BufNewFile,BufRead *.py
 \ set expandtab           |
 \ set autoindent          |
 \ set fileformat=unix
+" Highlight trailing whitespaces
+highlight TrailingWhitespace ctermbg=red guibg=red
+au BufNewFile,BufRead *.py,*.pyw,*.c,*.h,*.js match TrailingWhitespace /\s\+$/
 
 " GUI settings
 " TODO Maxmize vim window on all platform
