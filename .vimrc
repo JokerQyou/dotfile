@@ -14,6 +14,8 @@ if has('win32')
 else
     Plugin 'Valloric/YouCompleteMe'
 endif
+" Javascript plugin
+Plugin 'pangloss/vim-javascript'
 " OceanicNext color scheme
 Plugin 'mhartington/oceanic-next'
 call vundle#end()
@@ -33,20 +35,13 @@ set modeline " Modeline (allow comment contents in file set vim config)
 set showcmd " Show command in status line
 
 " Syntax differed settings
+" TODO: Is this necessary since we have plugin for Python now?
 " Python: 1 tab == 4 spaces, max width == 80, \n as line ending
 au BufNewFile,BufRead *.py
 \ set tabstop=4           |
 \ set softtabstop=4       |
 \ set shiftwidth=4        |
 \ set textwidth=80        |
-\ set expandtab           |
-\ set autoindent          |
-\ set fileformat=unix
-" Javascript: 1 tab == 2spaces, \n as line ending
-au BufNewFile,BufRead *.js
-\ set tabstop=2           |
-\ set softtabstop=2       |
-\ set shiftwidth=2        |
 \ set expandtab           |
 \ set autoindent          |
 \ set fileformat=unix
