@@ -12,7 +12,13 @@ Plugin 'VundleVim/Vundle.vim'
 if has('win32')
     " It's a disaster to use YCM on Windows, opt-out here
 else
-    Plugin 'Valloric/YouCompleteMe'
+    if v:version >= 703
+        " Or shall we detect path 7.3.874 instead? (see https://git.io/vz4Li )
+	" See https://git.io/vz4LP about this patch number
+        if has("patch-7.3.598")
+            Plugin 'Valloric/YouCompleteMe'
+        endif
+    endif
 endif
 " Javascript plugin
 Plugin 'pangloss/vim-javascript'
