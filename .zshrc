@@ -83,3 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ff="find . -name"
+alias pyfind='find -name \*.py|xargs grep --color -n'
+alias pofind='find -name \*.po|xargs grep --color -n'
+alias ptfind='find -name \*.pt|xargs grep --color -n'
+alias zcmlfind='find -name \*.zcml|xargs grep -n --color'
