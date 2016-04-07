@@ -21,6 +21,9 @@ else
         endif
     endif
 endif
+if has('python')
+    Plugin 'davidhalter/jedi-vim'
+endif
 " Javascript plugin
 Plugin 'pangloss/vim-javascript'
 " OceanicNext color scheme
@@ -52,6 +55,13 @@ au BufNewFile,BufRead *.*
 \ set expandtab           |
 \ set autoindent          |
 \ set fileformat=unix
+
+" Frontend: they prefer 1tab == 2 spaces conversion
+au BufNewFile,BufRead *.js, *.html, *.css, *.scss
+\ set tabstop=2
+\ set softtabstop=2
+\ set shiftwidth=2
+
 " Highlight trailing whitespaces
 highlight TrailingWhitespace ctermbg=red guibg=red
 au BufNewFile,BufRead *.py,*.pyw,*.c,*.h,*.js match TrailingWhitespace /\s\+$/
