@@ -16,7 +16,8 @@ else
         " Or shall we detect path 7.3.874 instead? (see https://git.io/vz4Li )
 	" See https://git.io/vz4LP about this patch number
         if has("patch-7.3.598")
-            Plugin 'Valloric/YouCompleteMe'
+	    "let g:ycm_path_to_python_interpreter='python2'
+            "Plugin 'Valloric/YouCompleteMe'
         endif
     endif
 endif
@@ -43,7 +44,7 @@ set showcmd " Show command in status line
 " Syntax differed settings
 " TODO: Is this necessary since we have plugin for Python now?
 " Python: 1 tab == 4 spaces, max width == 80, \n as line ending
-au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.*
 \ set tabstop=4           |
 \ set softtabstop=4       |
 \ set shiftwidth=4        |
