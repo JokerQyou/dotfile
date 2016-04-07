@@ -87,12 +87,3 @@ alias pyfind="find -name \*.py|xargs grep --color -n"
 alias pofind="find -name \*.po|xargs grep --color -n"
 alias ptfind="find -name \*.pt|xargs grep --color -n"
 alias zcmlfind="find -name \*.zcml|xargs grep -n --color"
-
-_PLATFORM="`uname -s`"
-if [[ $_PLATFORM == "Linux" ]]; then
-    if ! type "xsel" > /dev/null; then
-        # Simulate pbcopy and pbpaste (of Mac) on Linux DE
-        alias pbcopy="xsel --clipboard --input"
-        alias pbpaste="xsel --clipboard --output"
-    fi
-fi
