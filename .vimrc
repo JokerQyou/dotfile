@@ -58,11 +58,11 @@ set showcmd " Show command in status line
 " TODO: Is this necessary since we have plugin for Python now?
 " General: 1 tab == 4 spaces, max width == 80, \n as line ending
 
+" Solution of getting symlinked vimrc folder path from here:
+" http://stackoverflow.com/a/18734557
+let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 function! LoadExternalFunctions()
     " Source external vimscript file to load predefined functions
-    " Solution of getting symlinked vimrc folder path from here:
-    " http://stackoverflow.com/a/18734557
-    let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
     let function_file = join([s:path, 'vim', 'functions'], '/')
     execute join(['source', function_file], ' ')
 endfunction
