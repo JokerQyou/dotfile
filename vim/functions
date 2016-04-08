@@ -1,0 +1,20 @@
+" Predefined functions for my vim config
+
+function! SetupAllFileTypes()
+    " Setup general tab => spaces conversion and tabstop
+    set expandtab
+    set autoindent
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=80
+    set fileformat=unix
+endfunction
+
+function! SetupFEFileTypes()
+    " Frontend: they always prefer 1tab == 2 spaces conversion, dunno why
+    " Maybe because years of struggling in callback hell?
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+endfunction
