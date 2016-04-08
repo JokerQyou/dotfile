@@ -24,13 +24,15 @@ endif
 if has('python')
     Plugin 'davidhalter/jedi-vim'
 endif
-Plugin 'nvie/vim-flake8'
-au BufWritePost *.py call Flake8()
-let g:flake8_show_in_gutter=1
-let g:flake8_show_in_file=1
-let g:flake8_warning_marker=1
-let g:flake8_complexity_marker=1
-let g:flake8_naming_marker=1
+
+" Syntax checker
+Plugin 'scrooloose/syntastic'
+let g:syntastic_auto_loc_list = 1
+
+" For now syntastic is way better than vim-flake8
+"Plugin 'nvie/vim-flake8'
+"au BufWritePost *.py call Flake8()
+
 let python_highlight_all=1
 
 " Javascript plugin
