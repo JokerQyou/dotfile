@@ -54,22 +54,30 @@ set modeline " Modeline (allow comment contents in file set vim config)
 set showcmd " Show command in status line
 
 " Syntax differed settings
-" TODO: Is this necessary since we have plugin for Python now?
-" Python: 1 tab == 4 spaces, max width == 80, \n as line ending
-au BufNewFile,BufRead *.*
-\ set tabstop=4           |
-\ set softtabstop=4       |
-\ set shiftwidth=4        |
-\ set textwidth=80        |
-\ set expandtab           |
-\ set autoindent          |
-\ set fileformat=unix
+set expandtab
+set autoindent
 
-" Frontend: they prefer 1tab == 2 spaces conversion
-au BufNewFile,BufRead *.js, *.html, *.css, *.scss
-\ set tabstop=2
-\ set softtabstop=2
-\ set shiftwidth=2
+" TODO: Is this necessary since we have plugin for Python now?
+" General: 1 tab == 4 spaces, max width == 80, \n as line ending
+au BufNewFile,BufRead *.* call SetupAllFileTypes()
+au BufNewFile,BufRead *.js, *.html, *.css, *.scss call SetupFEFileTypes()
+
+function! SetupAllFileTypes()
+    " Setup general tab => spaces conversion and tabstop
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=80
+    set fileformat=unix
+endfunction
+
+function! SetupFEFileTypes()
+    " Frontend: they always prefer 1tab == 2 spaces conversion, dunno why
+    " Maybe because years of struggling in callback hell?
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+endfunction
 
 " Highlight trailing whitespaces
 highlight TrailingWhitespace ctermbg=red guibg=red
