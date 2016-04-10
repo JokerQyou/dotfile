@@ -1,84 +1,90 @@
-" Basic settings
+" Very Basic Settings {{{
 set encoding=utf-8
 set nocompatible
 filetype off
-
-" Vundle loading
+" }}}
+" Vundle Plugin Manager Init {{{
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Vundle plugin
 Plugin 'VundleVim/Vundle.vim'
-" Code completion plugin
-if has('win32')
-    " It's a disaster to use YCM on Windows, opt-out here
-else
-    if v:version >= 703
-        " Or shall we detect path 7.3.874 instead? (see https://git.io/vz4Li )
-	" See https://git.io/vz4LP about this patch number
-        if has("patch-7.3.598")
-	    "let g:ycm_path_to_python_interpreter='python2'
-            "Plugin 'Valloric/YouCompleteMe'
-        endif
-    endif
-endif
+" }}}
+" Python Code Completion Plugin - jedi-vim {{{
 if has('python')
     Plugin 'davidhalter/jedi-vim'
 endif
-
-" Syntax checker
-Plugin 'scrooloose/syntastic'
+" }}}
+" Syntax checker Plugin - Syntastic {{{
 let g:syntastic_auto_loc_list = 1
-
-" For now syntastic is way better than vim-flake8
-"Plugin 'nvie/vim-flake8'
-"au BufWritePost *.py call Flake8()
-
-let python_highlight_all=1
-
-" Javascript plugin
+Plugin 'scrooloose/syntastic'
+"}}}
+" Javascript Plugin - vim-javascript {{{
+" TODO I should really try to figure out what this plugin does
 Plugin 'pangloss/vim-javascript'
-" OceanicNext color scheme
+" }}}
+" Color Scheme Plugin - oceanic-next {{{
 Plugin 'mhartington/oceanic-next'
+" }}}
+" Vundle Plugin Manager Inited {{{
 call vundle#end()
-" Vundle loaded
-
-syntax on
+" }}}
+" Color {{{
 set t_Co=256
 colorscheme OceanicNext
 set background=dark
-
-filetype plugin indent on
+" }}}
+" Misc {{{
+let python_highlight_all=1
 set backspace=indent,eol,start
+set modelines=1 " Modeline (allow comment contents in file set vim config)
+" }}}
+" Spaces & Tabs {{{
+set tabstop=4 " number of visual spaces per TAB
+set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4
+set expandtab " TABs are spaces
+set autoindent
+set textwidth=80
+" }}}
+" UI Config {{{
+syntax enable
 set number " Line number
 set ruler " Column number and row number
-set incsearch " Instant search
-set modeline " Modeline (allow comment contents in file set vim config)
 set showcmd " Show command in status line
-
-" Syntax differed settings
-
-" TODO: Is this necessary since we have plugin for Python now?
-" General: 1 tab == 4 spaces, max width == 80, \n as line ending
-
-" Solution of getting symlinked vimrc folder path from here:
-" http://stackoverflow.com/a/18734557
-let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-function! LoadExternalFunctions()
-    " Source external vimscript file to load predefined functions
-    let function_file = join([s:path, 'vim', 'functions'], '/')
-    execute join(['source', function_file], ' ')
-endfunction
-
-call LoadExternalFunctions()
-call SetupAllFileTypes()
-au BufNewFile,BufRead *.js, *.html, *.css, *.scss call SetupFEFileTypes()
-
-
-" Highlight trailing whitespaces
+set cursorline " highlight current line
+filetype plugin indent on " load filetype-specific and plugin-specific indent files
+set wildmenu " visual autocomplete for command menu
+set lazyredraw " redraw only when we need to
+set showmatch " highlight matching [({})]
+" }}}
+" Search {{{
+set incsearch " search as we type
+set hlsearch " highlight matches
+" turn off search highlight by hitting `,space`
+nnoremap <leader><space> :nohlsearch<CR>
+" }}}
+" Folding {{{
+" space open/close folds
+nnoremap <space> za
+" }}}
+" Leader Shortcuts {{{
+let mapleader=","
+" }}}
+" Highlight Groups {{{
 highlight TrailingWhitespace ctermbg=red guibg=red
-au BufNewFile,BufRead *.py,*.pyw,*.c,*.h,*.js match TrailingWhitespace /\s\+$/
-
-" GUI settings
+" }}}
+" Filetype Settings {{{
+augroup configgroup
+    au!
+    " Front-end filetypes
+    au BufNewFile,BufRead *.js, *.html, *.css, *.scss setlocal tabstop=2
+    au BufNewFile,BufRead *.js, *.html, *.css, *.scss setlocal softtabstop=2
+    au BufNewFile,BufRead *.js, *.html, *.css, *.scss setlocal shiftwidth=2
+    " Python files
+    au BufNewFile,BufRead *.py,*.pyw,*.c,*.h,*.js match TrailingWhitespace /\s\+$/
+augroup END
+"}}}
+" GUI Settings {{{
 " TODO Maxmize vim window on all platform
 if has('gui_running')
     " Hide widgets
@@ -96,3 +102,5 @@ if has('gui_running')
         au GUIEnter * simalt ~x
     endif
 endif
+" }}}
+" vim:foldmethod=marker:foldlevel=0
