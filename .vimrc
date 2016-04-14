@@ -3,6 +3,9 @@ set encoding=utf-8
 set nocompatible
 filetype off
 " }}}
+" Leader Shortcuts {{{
+let mapleader=","
+" }}}
 " Vundle Plugin Manager Init {{{
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -17,6 +20,7 @@ endif
 " Syntax checker Plugin - Syntastic {{{
 let g:syntastic_auto_loc_list = 1
 Plugin 'scrooloose/syntastic'
+nnoremap <leader>h :SyntasticReset<CR>
 "}}}
 " Javascript Plugin - vim-javascript {{{
 " TODO I should really try to figure out what this plugin does
@@ -66,9 +70,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Folding {{{
 " space open/close folds
 nnoremap <space> za
-" }}}
-" Leader Shortcuts {{{
-let mapleader=","
 " }}}
 " Highlight Groups {{{
 highlight TrailingWhitespace ctermbg=red guibg=red
