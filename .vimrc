@@ -78,9 +78,9 @@ highlight TrailingWhitespace ctermbg=red guibg=red
 augroup configgroup
     au!
     " Front-end filetypes
-    au BufNewFile,BufRead *.js, *.html, *.css, *.scss setlocal tabstop=2
-    au BufNewFile,BufRead *.js, *.html, *.css, *.scss setlocal softtabstop=2
-    au BufNewFile,BufRead *.js, *.html, *.css, *.scss setlocal shiftwidth=2
+    au BufNewFile,BufRead *.js,*.html,*.css,*.scss setlocal tabstop=2
+    au BufNewFile,BufRead *.js,*.html,*.css,*.scss setlocal softtabstop=2
+    au BufNewFile,BufRead *.js,*.html,*.css,*.scss setlocal shiftwidth=2
     " Python files
     au BufNewFile,BufRead *.py,*.pyw,*.c,*.h,*.js match TrailingWhitespace /\s\+$/
 augroup END
