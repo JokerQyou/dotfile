@@ -29,6 +29,13 @@ Plugin 'pangloss/vim-javascript'
 " Color Scheme Plugin - oceanic-next {{{
 Plugin 'mhartington/oceanic-next'
 " }}}
+" Other plugins {{{
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" Optional:
+Plugin 'honza/vim-snippets'
+" }}}
 " Vundle Plugin Manager Inited {{{
 call vundle#end()
 " }}}
