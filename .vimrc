@@ -29,12 +29,27 @@ Plugin 'pangloss/vim-javascript'
 " Color Scheme Plugin - oceanic-next {{{
 Plugin 'mhartington/oceanic-next'
 " }}}
-" Other plugins {{{
+" Snippets plugin {{{
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 " Optional:
 Plugin 'honza/vim-snippets'
+" }}}
+" Code searcher plugin {{{
+if executable('ag')
+    Plugin 'rking/ag.vim'
+    nnoremap <leader>f :Ag<space>
+endif
+if executable('pt')
+    let g:unite_source_grep_command = 'pt'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+    let g:unite_source_grep_recursive_opt = ''
+    let g:unite_source_grep_encoding = 'utf-8'
+    Plugin 'Shougo/vimproc.vim'
+    Plugin 'Shougo/unite.vim'
+    nnoremap <leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+endif
 " }}}
 " Vundle Plugin Manager Inited {{{
 call vundle#end()
