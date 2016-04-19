@@ -53,7 +53,24 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+# Adjust PATH variable on different machine, by hostname
+__HOSTNAME="`hostname`"
+if [[ $__HOSTNAME == "ubuntu" ]]; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+elif [[ $__HOSTNAME == "zopen05" ]]; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+elif [[ $__HOSTNAME == "JokerdeMacbookPro" ]]; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+elif [[ $__HOSTNAME == "nookali" ]]; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+elif [[ $__HOSTNAME == "pi" ]]; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+fi
+
+# Append additional binary location
+if [[ -d "$HOME/.bin" ]]; then
+    export PATH="$PATH:$HOME/.bin"
+fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
