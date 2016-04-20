@@ -40,7 +40,7 @@ ZSH_THEME="ys"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -57,13 +57,18 @@ plugins=(git)
 __HOSTNAME="`hostname`"
 if [[ $__HOSTNAME == "ubuntu" ]]; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-elif [[ $__HOSTNAME == "zopen05" ]]; then
+elif [[ $__HOSTNAME == "zopen05" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-elif [[ $__HOSTNAME == "JokerdeMacbookPro" ]]; then
+elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
+    export GOPATH=$HOME/Works/Go
+    export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Tools:/Library/Frameworks/Python.framework/Versions/3.4/bin:$HOME/Tools/todo.txt"
+    export PATH="${PATH}:$HOME/Library/Developer/Xamarin/android-sdk-macosx/platform-tools/:$GOPATH/bin"
+
+    alias st="subl"
+    alias electron="/Applications/Electron.app/Contents/MacOS/Electron"
+elif [[ $__HOSTNAME == "nookali" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-elif [[ $__HOSTNAME == "nookali" ]]; then
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-elif [[ $__HOSTNAME == "pi" ]]; then
+elif [[ $__HOSTNAME == "pi" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 fi
 
