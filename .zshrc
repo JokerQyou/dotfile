@@ -57,7 +57,7 @@ plugins=(git)
 __HOSTNAME="`hostname`"
 if [[ $__HOSTNAME == "ubuntu" ]]; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-elif [[ $__HOSTNAME == "zopen05" ]]; then # FIXME
+elif [[ $__HOSTNAME == "zopen05" ]]; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
     export GOPATH=$HOME/Works/Go
