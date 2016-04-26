@@ -12,6 +12,9 @@ call vundle#begin()
 " Vundle plugin
 Plugin 'VundleVim/Vundle.vim'
 " }}}
+" Supertab Plugin {{{
+Plugin 'ervandew/supertab'
+" }}}
 " Python Code Completion Plugin - jedi-vim {{{
 if has('python')
     Plugin 'davidhalter/jedi-vim'
