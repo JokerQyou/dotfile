@@ -66,8 +66,9 @@ elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
 
     alias st="subl"
     alias electron="/Applications/Electron.app/Contents/MacOS/Electron"
-elif [[ $__HOSTNAME == "nookali" ]]; then # FIXME
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+elif [[ $__HOSTNAME == "nookali" ]]; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin"
+    export GOPATH="$HOME/golibs"
 elif [[ $__HOSTNAME == "pi" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 fi
@@ -79,6 +80,11 @@ fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# Source le script config if any
+if [[ -d "$HOME/.le" ]]; then
+    source "$HOME/.le/le.env"
+fi
 
 # Source virtualenvwrapper.sh if any
 if (( $+commands[virtualenvwrapper.sh] )) ; then
