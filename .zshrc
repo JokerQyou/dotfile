@@ -80,6 +80,11 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# Source virtualenvwrapper.sh if any
+if (( $+commands[virtualenvwrapper.sh] )) ; then
+    source virtualenvwrapper.sh
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
