@@ -27,7 +27,7 @@ nnoremap <leader>h :SyntasticReset<CR>
 "}}}
 " Javascript Plugin - vim-javascript {{{
 " TODO I should really try to figure out what this plugin does
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 " }}}
 " Color Scheme Plugin - oceanic-next {{{
 Plugin 'mhartington/oceanic-next'
@@ -67,18 +67,6 @@ let python_highlight_all=1
 set backspace=indent,eol,start
 set modelines=1 " Modeline (allow comment contents in file set vim config)
 " }}}
-" Spaces & Tabs {{{
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing
-set shiftwidth=4
-set expandtab " TABs are spaces
-set autoindent
-set textwidth=80
-if exists('+colorcolumn')
-    set colorcolumn=+0
-endif
-set formatoptions-=t
-" }}}
 " UI Config {{{
 syntax enable
 set number " Line number
@@ -89,6 +77,20 @@ filetype plugin indent on " load filetype-specific and plugin-specific indent fi
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to
 set showmatch " highlight matching [({})]
+" }}}
+" Spaces & Tabs {{{
+set tabstop=4 " number of visual spaces per TAB
+set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4
+set expandtab " TABs are spaces
+set autoindent
+set textwidth=80
+if exists('+colorcolumn')
+    set colorcolumn=+0
+endif
+set wrap
+set linebreak
+set nolist
 " }}}
 " Search {{{
 set incsearch " search as we type
@@ -107,6 +109,8 @@ highlight ColorColumn ctermbg=25 guibg=#005faf
 " Filetype Settings {{{
 augroup configgroup
     au!
+    " All files
+    au BufNewFile,BufRead * setlocal formatoptions-=t
     " Front-end filetypes
     au BufNewFile,BufRead *.js,*.html,*.css,*.scss setlocal tabstop=2
     au BufNewFile,BufRead *.js,*.html,*.css,*.scss setlocal softtabstop=2
