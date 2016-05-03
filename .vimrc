@@ -74,6 +74,10 @@ set shiftwidth=4
 set expandtab " TABs are spaces
 set autoindent
 set textwidth=80
+if exists('+colorcolumn')
+    set colorcolumn=+0
+endif
+set formatoptions-=t
 " }}}
 " UI Config {{{
 syntax enable
@@ -98,6 +102,7 @@ nnoremap <space> za
 " }}}
 " Highlight Groups {{{
 highlight TrailingWhitespace ctermbg=red guibg=red
+highlight ColorColumn ctermbg=25 guibg=#005faf
 " }}}
 " Filetype Settings {{{
 augroup configgroup
