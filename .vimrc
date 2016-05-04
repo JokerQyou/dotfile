@@ -104,7 +104,6 @@ nnoremap <space> za
 " }}}
 " Highlight Groups {{{
 highlight TrailingWhitespace ctermbg=red guibg=red
-highlight ColorColumn ctermbg=25 guibg=#005faf
 " }}}
 " Filetype Settings {{{
 augroup configgroup
