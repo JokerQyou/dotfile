@@ -71,6 +71,8 @@ elif [[ $__HOSTNAME == "nookali" ]]; then
     export GOPATH="$HOME/golibs"
 elif [[ $__HOSTNAME == "pi" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+else
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 fi
 
 # Append additional binary location
