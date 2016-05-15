@@ -54,6 +54,9 @@ if executable('pt')
     nnoremap <leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 endif
 " }}}
+" Python indentation plugin {{{
+Plugin 'hynek/vim-python-pep8-indent'
+" }}}
 " Vundle Plugin Manager Inited {{{
 call vundle#end()
 " }}}
@@ -83,7 +86,7 @@ set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4
 set expandtab " TABs are spaces
-set autoindent
+" set autoindent
 set textwidth=80
 if exists('+colorcolumn')
     set colorcolumn=+0
