@@ -88,6 +88,8 @@ if [[ -d "$HOME/.le" ]]; then
     source "$HOME/.le/le.env"
 fi
 
+# fzf related settings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Source virtualenvwrapper.sh if any
 if (( $+commands[virtualenvwrapper.sh] )) ; then
     source virtualenvwrapper.sh
