@@ -49,7 +49,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins+=(git)
 
 # User configuration
 
@@ -89,7 +89,8 @@ if [[ -d "$HOME/.le" ]]; then
 fi
 
 # fzf related settings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -d $HOME/.oh-my-zsh/custom/plugins/k ] && plugins+=(k)
 # Source virtualenvwrapper.sh if any
 if (( $+commands[virtualenvwrapper.sh] )) ; then
     source virtualenvwrapper.sh
