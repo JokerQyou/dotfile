@@ -63,6 +63,7 @@ elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
     export GOPATH=$HOME/Works/Go
     export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Tools:/Library/Frameworks/Python.framework/Versions/3.4/bin:$HOME/Tools/todo.txt"
     export PATH="${PATH}:$HOME/Library/Developer/Xamarin/android-sdk-macosx/platform-tools/:$GOPATH/bin"
+    export PATH="${PATH}:$HOME/Library/Python/2.7/bin"
 
     alias st="subl"
     alias electron="/Applications/Electron.app/Contents/MacOS/Electron"
