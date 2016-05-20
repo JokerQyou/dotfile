@@ -50,6 +50,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins+=(git)
+[ -d $HOME/.oh-my-zsh/custom/plugins/k ] && plugins+=(k)
 
 # User configuration
 
@@ -91,7 +92,6 @@ fi
 
 # fzf related settings
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-[ -d $HOME/.oh-my-zsh/custom/plugins/k ] && plugins+=(k)
 # Source virtualenvwrapper.sh if any
 if (( $+commands[virtualenvwrapper.sh] )) ; then
     source virtualenvwrapper.sh
