@@ -6,6 +6,12 @@ filetype off
 " Leader Shortcuts {{{
 let mapleader=","
 " }}}
+" fzf plugin {{{
+if isdirectory(expand("~/.fzf"))
+    set rtp+=~/.fzf
+    nnoremap <leader>p :FZF<space>
+endif
+" }}}
 " Vundle Plugin Manager Init {{{
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
