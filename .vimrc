@@ -9,7 +9,7 @@ let mapleader=","
 " fzf plugin {{{
 if isdirectory(expand("~/.fzf"))
     set rtp+=~/.fzf
-    nnoremap <leader>p :FZF<space>
+    nnoremap <leader>p :FZF<CR>
 endif
 " }}}
 " Vundle Plugin Manager Init {{{
