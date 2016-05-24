@@ -85,13 +85,11 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Source le script config if any
-if [[ -d "$HOME/.le" ]]; then
-    source "$HOME/.le/le.env"
-fi
-
-# fzf related settings
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+# Extra scripts to source
+extra_scripts=("$HOME/.le/le.env" "$HOME/.fzf.zsh")
+for i in $extra_scripts; do
+    [ -f $i ] && source $i
+done
 # Source virtualenvwrapper.sh if any
 if (( $+commands[virtualenvwrapper.sh] )) ; then
     source virtualenvwrapper.sh
@@ -126,3 +124,4 @@ alias pyfind="find -name \*.py|xargs grep --color -n"
 alias pofind="find -name \*.po|xargs grep --color -n"
 alias ptfind="find -name \*.pt|xargs grep --color -n"
 alias zcmlfind="find -name \*.zcml|xargs grep -n --color"
+[ -f /usr/local/bin/vim ] && alias vim="/usr/local/bin/vim" && alias vi=vim
