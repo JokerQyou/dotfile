@@ -5,6 +5,9 @@ filetype off
 " }}}
 " Leader Shortcuts {{{
 let mapleader=","
+nnoremap t<Right> :tabn<CR>
+nnoremap t<Left> :tabp<CR>
+nnoremap te :tabe<CR>
 " }}}
 " fzf plugin {{{
 if isdirectory(expand("~/.fzf"))
@@ -113,6 +116,7 @@ nnoremap <space> za
 " }}}
 " Highlight Groups {{{
 highlight TrailingWhitespace ctermbg=red guibg=red
+highlight CursorLine ctermbg=235
 " }}}
 " Filetype Settings {{{
 augroup configgroup
