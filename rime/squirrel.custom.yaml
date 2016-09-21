@@ -1,0 +1,53 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.9.30
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Fri Sep 18 15:44:22 2015"
+  rime_version: 1.1.2
+patch:
+  style:
+    color_scheme: dust
+  preset_color_schemes/dust:
+    author: "Superoutman <asticosmo@gmail.com>"
+    back_color: 0xeeffffff
+    border_height: 0
+    border_width: 9
+    candidate_format: "\u2005%c\u2005%@\u2005"
+    # comment_text_color: 0xeeffffff
+    comment_text_color: 0xa2a2a2
+    candidate_text_color: 0x666666
+    corner_radius: 3
+    font_point: 18
+    hilited_candidate_back_color: 0x00000000
+    hilited_candidate_label_color: 0xaaaaaa
+    hilited_candidate_text_color: 0x000000
+    horizontal: true
+    label_color: 0xaaaaaa
+    label_font_point: 16
+    name: "浮尘／Dust"
+    font_face: "PingFangSC-Regular,HiraginoSansGB-W3,SourceHansSans-Regular,HanaMinA,H-SiuNiu"
+    inline_preedit: true  # 单行显示
+  app_options/com.apple.Xcode:
+    ascii_mode: true
+  app_options/com.runningwithcrayons.Alfred-3:
+    ascii_mode: true
+  app_options/com.jetbrains.CLion:
+    ascii_mode: true
+  app_options/com.krill.CodeRunner:
+    ascii_mode: true
+  app_options/com.kapeli.dashdoc:
+    ascii_mode: true
+  app_options/com.trolltech.Designer:
+    ascii_mode: true
+  app_options/co.gitup.mac:
+    ascii_mode: true
+  app_options/org.gpgtools.gpgkeychain:
+    ascii_mode: true
+  app_options/com.sequelpro.SequelPro:
+    ascii_mode: true
+  app_options/clowwindy.ShadowsocksX:
+    ascii_mode: true
+  app_options/com.sketchup.SketchUp.2015:
+    ascii_mode: true
+  app_options/com.sublimetext.3:
+    ascii_mode: true
