@@ -15,42 +15,41 @@ if isdirectory(expand("~/.fzf"))
     nnoremap <leader>p :FZF<CR>
 endif
 " }}}
-" Vundle Plugin Manager Init {{{
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Vim Plug init
+call plug#begin('~/.vim/plugged')
 " Vundle plugin
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 " }}}
 " Supertab Plugin {{{
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 " }}}
 " Python Code Completion Plugin - jedi-vim {{{
 if has('python')
-    Plugin 'davidhalter/jedi-vim'
+    Plug 'davidhalter/jedi-vim'
 endif
 " }}}
 " Syntax checker Plugin - Syntastic {{{
 let g:syntastic_auto_loc_list = 1
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 nnoremap <leader>h :SyntasticReset<CR>
 "}}}
 " Javascript Plugin - vim-javascript {{{
 " TODO I should really try to figure out what this plugin does
-" Plugin 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 " }}}
 " Color Scheme Plugin - oceanic-next {{{
-Plugin 'mhartington/oceanic-next'
+Plug 'mhartington/oceanic-next'
 " }}}
 " Snippets plugin {{{
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 " Optional:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " }}}
 " Code searcher plugin {{{
 if executable('ag')
-    Plugin 'rking/ag.vim'
+    Plug 'rking/ag.vim'
     nnoremap <leader>f :Ag<space>
 endif
 if executable('pt')
@@ -58,16 +57,16 @@ if executable('pt')
     let g:unite_source_grep_default_opts = '--nogroup --nocolor'
     let g:unite_source_grep_recursive_opt = ''
     let g:unite_source_grep_encoding = 'utf-8'
-    Plugin 'Shougo/vimproc.vim'
-    Plugin 'Shougo/unite.vim'
+    Plug 'Shougo/vimproc.vim'
+    Plug 'Shougo/unite.vim'
     nnoremap <leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 endif
 " }}}
 " Python indentation plugin {{{
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent'
 " }}}
 " Vundle Plugin Manager Inited {{{
-call vundle#end()
+call plug#end()
 " }}}
 " Color {{{
 set t_Co=256

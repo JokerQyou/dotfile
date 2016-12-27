@@ -126,3 +126,4 @@ alias pofind="find -name \*.po|xargs grep --color -n"
 alias ptfind="find -name \*.pt|xargs grep --color -n"
 alias zcmlfind="find -name \*.zcml|xargs grep -n --color"
 [ -f /usr/local/bin/vim ] && alias vim="/usr/local/bin/vim" && alias vi=vim
+. "/home/joker/.acme.sh/acme.sh.env"
