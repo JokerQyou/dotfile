@@ -84,6 +84,7 @@ syntax enable
 set number " Line number
 set ruler " Column number and row number
 set showcmd " Show command in status line
+set noshowmode
 set cursorline " highlight current line
 filetype plugin indent on " load filetype-specific and plugin-specific indent files
 set wildmenu " visual autocomplete for command menu
