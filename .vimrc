@@ -37,8 +37,11 @@ nnoremap <leader>h :SyntasticReset<CR>
 " TODO I should really try to figure out what this plugin does
 " Plug 'pangloss/vim-javascript'
 " }}}
-" Color Scheme Plugin - oceanic-next {{{
+" Color Scheme Plugins {{{
 Plug 'mhartington/oceanic-next'
+Plug 'jacoborus/tender.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 " }}}
 " Snippets plugin {{{
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -65,13 +68,11 @@ endif
 " Python indentation plugin {{{
 Plug 'hynek/vim-python-pep8-indent'
 " }}}
+" Misc plugins {{{
+Plug 'tpope/vim-fugitive'
+" }}}
 " Vundle Plugin Manager Inited {{{
 call plug#end()
-" }}}
-" Color {{{
-set t_Co=256
-colorscheme OceanicNext
-set background=dark
 " }}}
 " Misc {{{
 let python_highlight_all=1
@@ -88,6 +89,21 @@ filetype plugin indent on " load filetype-specific and plugin-specific indent fi
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to
 set showmatch " highlight matching [({})]
+" }}}
+" Color {{{
+set t_Co=256
+set background=dark
+if (has("termguicolors"))
+  set termguicolors
+endif
+set laststatus=2
+colorscheme OceanicNext
+" colorscheme tender
+" }}}
+" Statusline plugin {{{
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'tender'
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4 " number of visual spaces per TAB
@@ -143,7 +159,7 @@ if has('gui_running')
     elseif has('gui_macvim')
         set guifont=Monaco:h14
     elseif has('gui_win32')
-        set guifont=Source\ Code\ Pro:h14
+        set guifont=UbuntuMonoDerivativePowerline\ N:h16
         " Simulate a Win+UpArrow key press, to maxmize the window
         au GUIEnter * simalt ~x
     endif
