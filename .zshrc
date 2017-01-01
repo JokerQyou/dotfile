@@ -57,9 +57,7 @@ plugins+=(git)
 
 # Adjust PATH variable on different machine, by hostname
 __HOSTNAME="`hostname`"
-if [[ $__HOSTNAME == "ubuntu" ]]; then
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-elif [[ $__HOSTNAME == "zopen05" ]]; then
+if [[ $__HOSTNAME == "zopen05" ]]; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
     export GOPATH=$HOME/Works/Go
@@ -69,9 +67,6 @@ elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
 
     alias st="subl"
     alias electron="/Applications/Electron.app/Contents/MacOS/Electron"
-elif [[ $__HOSTNAME == "nookali" ]]; then
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin"
-    export GOPATH="$HOME/golibs"
 elif [[ $__HOSTNAME == "pi" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 else
@@ -87,7 +82,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Extra scripts to source
-extra_scripts=("$HOME/.le/le.env" "$HOME/.fzf.zsh")
+extra_scripts=("$HOME/.acme.sh/acme.sh.env" "$HOME/.fzf.zsh")
 for i in $extra_scripts; do
     [ -f $i ] && source $i
 done
@@ -126,4 +121,3 @@ alias pofind="find -name \*.po|xargs grep --color -n"
 alias ptfind="find -name \*.pt|xargs grep --color -n"
 alias zcmlfind="find -name \*.zcml|xargs grep -n --color"
 [ -f /usr/local/bin/vim ] && alias vim="/usr/local/bin/vim" && alias vi=vim
-. "/home/joker/.acme.sh/acme.sh.env"
