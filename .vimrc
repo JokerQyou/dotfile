@@ -29,10 +29,52 @@ if has('python')
 endif
 " }}}
 " Syntax checker Plugin - Syntastic {{{
-let g:syntastic_auto_loc_list = 1
-Plug 'scrooloose/syntastic'
-nnoremap <leader>h :SyntasticReset<CR>
+" let g:syntastic_auto_loc_list = 1
+" Plug 'scrooloose/syntastic'
+" nnoremap <leader>h :SyntasticReset<CR>
 "}}}
+" Async syntax checker plugin - ale {{{
+highlight ALEErrorSign ctermfg=red guifg=red ctermbg=none guibg=NONE cterm=bold
+" highlight ALEErrorSign guifg=#fb4934 guibg=#3c3836
+Plug 'w0rp/ale'
+let g:ale_set_highlights = 0
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']
+" For a more fancy ale statusline
+function! ALEGetError()
+    let l:res = ale#statusline#Status()
+    if l:res ==# 'OK'
+        return ''
+    else
+        let l:e_w = split(l:res)
+        if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
+            return ' •' . matchstr(l:e_w[0], '\d\+') .' '
+        endif
+    endif
+endfunction
+
+function! ALEGetWarning()
+    let l:res = ale#statusline#Status()
+    if l:res ==# 'OK'
+        return ''
+    else
+        let l:e_w = split(l:res)
+        if len(l:e_w) == 2
+            return ' •' . matchstr(l:e_w[1], '\d\+')
+        elseif match(l:e_w, 'W') > -1
+            return ' •' . matchstr(l:e_w[0], '\d\+')
+        endif
+    endif
+endfunction
+
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+
+nmap <C-k> <Plug>(ale_next)
+nmap <C-j> <Plug>(ale_previous)
+" }}}
 " Javascript Plugin - vim-javascript {{{
 " TODO I should really try to figure out what this plugin does
 " Plug 'pangloss/vim-javascript'
@@ -66,10 +108,18 @@ if executable('pt')
 endif
 " }}}
 " Python indentation plugin {{{
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 " }}}
 " Misc plugins {{{
 Plug 'tpope/vim-fugitive'
+" }}}
+" History tree plugin {{{
+if has("persistent_undo")
+    set undodir=~/.vim/.undodir/
+    set undofile
+endif
+Plug 'mbbill/undotree'
+nnoremap <leader>u :UndotreeToggle<CR>
 " }}}
 " Vundle Plugin Manager Inited {{{
 call plug#end()
@@ -103,8 +153,32 @@ colorscheme OceanicNext
 " }}}
 " Statusline plugin {{{
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'tender'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s:'
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamecollapse = 1
+let g:airline#extensions#tabline#fnametruncate = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#default#section_truncate_width = {
+            \ 'b': 79,
+            \ 'x': 60,
+            \ 'y': 88,
+            \ 'z': 45,
+            \ 'warning': 80,
+            \ 'error': 80,
+            \ }
+let g:airline#extensions#default#layout = [
+            \ [ 'a', 'error', 'warning', 'b', 'c' ],
+            \ [ 'x', 'y', 'z' ]
+            \ ]
+
+" Distinct background color is enough to discriminate the warning and
+" error information.
+let g:airline#extensions#ale#error_symbol = '•'
+let g:airline#extensions#ale#warning_symbol = '•'
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4 " number of visual spaces per TAB
