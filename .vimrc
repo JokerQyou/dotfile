@@ -28,52 +28,51 @@ if has('python')
     Plug 'davidhalter/jedi-vim'
 endif
 " }}}
-" Syntax checker Plugin - Syntastic {{{
-" let g:syntastic_auto_loc_list = 1
-" Plug 'scrooloose/syntastic'
-" nnoremap <leader>h :SyntasticReset<CR>
-"}}}
-" Async syntax checker plugin - ale {{{
-highlight ALEErrorSign ctermfg=red guifg=red ctermbg=none guibg=NONE cterm=bold
-" highlight ALEErrorSign guifg=#fb4934 guibg=#3c3836
-Plug 'w0rp/ale'
-let g:ale_set_highlights = 0
-let g:ale_sign_error = '•'
-let g:ale_sign_warning = '•'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']
-" For a more fancy ale statusline
-function! ALEGetError()
-    let l:res = ale#statusline#Status()
-    if l:res ==# 'OK'
-        return ''
-    else
-        let l:e_w = split(l:res)
-        if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
-            return ' •' . matchstr(l:e_w[0], '\d\+') .' '
+" Syntax checker Plugin - Syntastic or ale {{{
+if version < 800
+    " let g:syntastic_auto_loc_list = 1
+    Plug 'scrooloose/syntastic'
+    nnoremap <leader>h :SyntasticReset<CR>
+else
+    Plug 'w0rp/ale'
+    let g:ale_set_highlights = 0
+    let g:ale_sign_error = '•'
+    let g:ale_sign_warning = '•'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+    let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']
+    " For a more fancy ale statusline
+    function! ALEGetError()
+        let l:res = ale#statusline#Status()
+        if l:res ==# 'OK'
+            return ''
+        else
+            let l:e_w = split(l:res)
+            if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
+                return ' •' . matchstr(l:e_w[0], '\d\+') .' '
+            endif
         endif
-    endif
-endfunction
+    endfunction
 
-function! ALEGetWarning()
-    let l:res = ale#statusline#Status()
-    if l:res ==# 'OK'
-        return ''
-    else
-        let l:e_w = split(l:res)
-        if len(l:e_w) == 2
-            return ' •' . matchstr(l:e_w[1], '\d\+')
-        elseif match(l:e_w, 'W') > -1
-            return ' •' . matchstr(l:e_w[0], '\d\+')
+    function! ALEGetWarning()
+        let l:res = ale#statusline#Status()
+        if l:res ==# 'OK'
+            return ''
+        else
+            let l:e_w = split(l:res)
+            if len(l:e_w) == 2
+                return ' •' . matchstr(l:e_w[1], '\d\+')
+            elseif match(l:e_w, 'W') > -1
+                return ' •' . matchstr(l:e_w[0], '\d\+')
+            endif
         endif
-    endif
-endfunction
+    endfunction
 
-let g:ale_echo_msg_error_str = 'Error'
-let g:ale_echo_msg_warning_str = 'Warning'
+    let g:ale_echo_msg_error_str = 'Error'
+    let g:ale_echo_msg_warning_str = 'Warning'
 
-nmap <C-k> <Plug>(ale_next)
-nmap <C-j> <Plug>(ale_previous)
+    nmap <C-k> <Plug>(ale_next)
+    nmap <C-j> <Plug>(ale_previous)
+endif
 " }}}
 " Javascript Plugin - vim-javascript {{{
 " TODO I should really try to figure out what this plugin does
@@ -207,6 +206,7 @@ nnoremap <space> za
 " Highlight Groups {{{
 highlight TrailingWhitespace ctermbg=red guibg=red
 highlight CursorLine ctermbg=235
+highlight ALEErrorSign ctermfg=red guifg=red ctermbg=237 guibg=#343d46 cterm=bold
 " }}}
 " Filetype Settings {{{
 augroup configgroup
