@@ -29,7 +29,7 @@ if has('python')
 endif
 " }}}
 " Syntax checker Plugin - Syntastic or ale {{{
-if version > 800 || has('nvim')
+if version >= 800 || has('nvim')
     Plug 'w0rp/ale'
     let g:ale_set_highlights = 0
     let g:ale_sign_error = '•'
@@ -233,7 +233,7 @@ if has('gui_running')
     if has('gui_gtk2')
         set guifont=Inconsolata\ 12
     elseif has('gui_macvim')
-        set guifont=Monaco:h14
+        set guifont=UbuntuMonoDerivativePowerline\ N:h16
     elseif has('gui_win32')
         set guifont=UbuntuMonoDerivativePowerline\ N:h16
         " Simulate a Win+UpArrow key press, to maxmize the window
