@@ -29,11 +29,7 @@ if has('python')
 endif
 " }}}
 " Syntax checker Plugin - Syntastic or ale {{{
-if version < 800
-    " let g:syntastic_auto_loc_list = 1
-    Plug 'scrooloose/syntastic'
-    nnoremap <leader>h :SyntasticReset<CR>
-else
+if version > 800 || has('nvim')
     Plug 'w0rp/ale'
     let g:ale_set_highlights = 0
     let g:ale_sign_error = '•'
@@ -72,6 +68,11 @@ else
 
     nmap <C-k> <Plug>(ale_next)
     nmap <C-j> <Plug>(ale_previous)
+
+else
+    " let g:syntastic_auto_loc_list = 1
+    Plug 'scrooloose/syntastic'
+    nnoremap <leader>h :SyntasticReset<CR>
 endif
 " }}}
 " Javascript Plugin - vim-javascript {{{
