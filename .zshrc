@@ -121,3 +121,12 @@ alias pofind="find -name \*.po|xargs grep --color -n"
 alias ptfind="find -name \*.pt|xargs grep --color -n"
 alias zcmlfind="find -name \*.zcml|xargs grep -n --color"
 [ -f /usr/local/bin/vim ] && alias vim="/usr/local/bin/vim" && alias vi=vim
+
+# GPG agent settings
+GPG_TTY=$(tty)
+export GPG_TTY
+if [ -f "$HOME/.gpg-agent-info" ]; then
+    . "$HOME/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
