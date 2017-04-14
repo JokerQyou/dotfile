@@ -15,7 +15,7 @@ if isdirectory(expand("~/.fzf"))
     nnoremap <leader>p :FZF<CR>
 endif
 " }}}
-" Vim Plug init
+" Vim Plug init {{{
 call plug#begin('~/.vim/plugged')
 " Vundle plugin
 Plug 'VundleVim/Vundle.vim'
