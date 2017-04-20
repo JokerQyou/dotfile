@@ -23,9 +23,13 @@ Plug 'VundleVim/Vundle.vim'
 " Supertab Plugin {{{
 Plug 'ervandew/supertab'
 " }}}
-" Python Code Completion Plugin - jedi-vim {{{
+" Python Code Completion Plugin - jedi-vim / completor {{{
 if has('python')
-    Plug 'davidhalter/jedi-vim'
+    if version >= 800:
+        Plug 'maralla/completor.vim'
+    else
+        Plug 'davidhalter/jedi-vim'
+    endif
 endif
 " }}}
 " Syntax checker Plugin - Syntastic or ale {{{
