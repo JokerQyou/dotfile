@@ -25,7 +25,7 @@ Plug 'ervandew/supertab'
 " }}}
 " Python Code Completion Plugin - jedi-vim / completor {{{
 if has('python')
-    if version >= 800:
+    if version >= 800
         Plug 'maralla/completor.vim'
     else
         Plug 'davidhalter/jedi-vim'
