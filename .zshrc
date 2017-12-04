@@ -61,12 +61,23 @@ if [[ $__HOSTNAME == "zopen05" ]]; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 elif [[ $__HOSTNAME == "JokerdeMacBook-Pro.local" ]]; then
     export GOPATH=$HOME/Works/Go
-    export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Tools:/Library/Frameworks/Python.framework/Versions/3.4/bin:$HOME/Tools/todo.txt"
+    export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Tools:/Library/Frameworks/Python.framework/Versions/3.4/bin:$HOME/Tools/todo.txt"
     export PATH="${PATH}:$HOME/Library/Developer/Xamarin/android-sdk-macosx/platform-tools/:$GOPATH/bin"
     export PATH="${PATH}:$HOME/Library/Python/2.7/bin"
 
     alias st="subl"
     alias electron="/Applications/Electron.app/Contents/MacOS/Electron"
+
+    pron () {
+        export https_proxy=http://127.0.0.1:6152
+        export http_proxy=http://127.0.0.1:6152
+        echo "Proxy on"
+    }
+
+    proff () {
+        unset https_proxy; unset http_proxy
+        echo "Proxy off"
+    }
 elif [[ $__HOSTNAME == "pi" ]]; then # FIXME
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 else
@@ -76,6 +87,9 @@ fi
 # Append additional binary location
 if [[ -d "$HOME/.bin" ]]; then
     export PATH="$PATH:$HOME/.bin"
+fi
+if [[ -d "$HOME/.cargo/bin" ]]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
 fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
