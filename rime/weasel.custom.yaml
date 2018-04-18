@@ -1,30 +1,36 @@
-# Rime Weasel (Windows) customization config
 customization:
   distribution_code_name: Weasel
-  distribution_version: 0.9.30
+  distribution_version: 0.10.0
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Fri Sep 18 15:44:22 2015"
-  rime_version: 1.1.2
+  modified_time: "Wed Mar 21 12:06:32 2018"
+  rime_version: 1.3.0
 patch:
-  preset_color_schemes/google/border_color: 0xa0a0a0
+  app_options:
+    "ComEmuC64.exe":
+      ascii_mode: true
+    "TeamViewer.exe":
+      ascii_mode: true
+    "XShell.exe":
+      ascii_mode: true
+    "cmd.exe":
+      ascii_mode: true
+    "ptpython.exe":
+      ascii_mode: true
+    "python.exe":
+      ascii_mode: true
+    "sublime_text.exe":
+      ascii_mode: true
+    "wing.exe":
+      ascii_mode: true
+    "putty.exe":
+      ascii_mode: true
+    "Taskmgr.exe":
+      ascii_mode: true
+    "keypirinha-x64.exe":
+      ascii_mode: true
   style:
-    display_tray_icon: true
+    color_scheme: ink
+    display_tray_icon: false
     font_face: "Microsoft Yahei"
     font_point: 14
-    color_scheme: google
-  app_options/cmd.exe:
-    ascii_mode: true
-  app_options/ComEmuC64.exe:
-    ascii_mode: true
-  app_options/python.exe:
-    ascii_mode: true
-  app_options/sublime_text.exe:
-    ascii_mode: true
-  app_options/wing.exe:
-    ascii_mode: true
-  app_options/XShell.exe:
-    ascii_mode: true
-  app_options/TeamViewer.exe:
-    ascii_mode: true
-  app_options/ptpython.exe:
-    ascii_mode: true
+    label_format: "%s."
