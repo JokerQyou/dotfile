@@ -52,8 +52,11 @@ HIST_STAMPS="yyyy-mm-dd"
 unset plugins
 plugins+=(git)
 [ -d $HOME/.oh-my-zsh/custom/plugins/k ] && plugins+=(k)
+[ -d $HOME/.oh-my-zsh/custom/plugins/command-time ] && plugins+=(command-time)
 
 # User configuration
+ZSH_COMMAND_TIME_MSG="Execution time: %s"
+ZSH_COMMAND_TIME_COLOR="cyan"
 
 # Adjust PATH variable on different machine, by hostname
 __HOSTNAME="`hostname`"
