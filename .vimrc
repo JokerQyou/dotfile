@@ -148,9 +148,6 @@ set showmatch " highlight matching [({})]
 " Color {{{
 set t_Co=256
 set background=dark
-if (has("termguicolors"))
-  set termguicolors
-endif
 set laststatus=2
 colorscheme OceanicNext
 " colorscheme tender
